@@ -24,4 +24,10 @@ module.exports = defineConfig({
     "prettier",
     "plugin:prettier/recommended",
   ],
+  rules: {
+    // 命名必须为多个单词
+    "vue/multi-word-component-names": "off",
+    // 显式声明 any
+    "@typescript-eslint/no-explicit-any": "off",
+  },
 });
