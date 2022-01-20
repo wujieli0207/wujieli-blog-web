@@ -1,6 +1,12 @@
 {
   "name": "wujieli-blog-web",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": {
+    "name": "wujieli",
+    "email": "wujieli0207@outlook.com",
+    "url": "https://github.com/wujieli0207"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
