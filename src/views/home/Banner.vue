@@ -1,7 +1,46 @@
 <template>
-  <!-- <div class="w-screen h-screen bg-gray-400 flex flex-col justify-center items-center"> -->
   <div class="banner">
-    <!-- <img class="w-screen h-screen" :src="banner" :alt="blogTitle" /> -->
+    <nav>
+      <div class="absolute top-2 left-5 m-5 hidden <lg:inline-block">
+        <!-- 侧边栏 -->
+        <SideBar v-model:visiable="sideBarVisible" />
+        <a-button
+          ghost
+          shape="circle"
+          size="middle"
+          @click="
+            () => {
+              sideBarVisible = !sideBarVisible;
+            }
+          "
+        >
+          <template #icon> <menu-outlined /> </template>
+        </a-button>
+      </div>
+
+      <!-- 顶部导航栏 -->
+      <div class="absolute top-5 right-20 <lg:hidden">
+        <NavBar />
+      </div>
+
+      <!-- 搜索按钮 -->
+      <div class="absolute top-2 right-5 m-5">
+        <SideBar v-model:visiable="sideBarVisible" />
+        <a-button
+          ghost
+          shape="circle"
+          size="middle"
+          @click="
+            () => {
+              sideBarVisible = !sideBarVisible;
+            }
+          "
+        >
+          <template #icon> <search-outlined /> </template>
+        </a-button>
+      </div>
+    </nav>
+
     <div class="text-6xl font-medium text-light-100">
       {{ blogTitle }}
     </div>
@@ -43,14 +82,20 @@
     MailOutlined,
     WechatFilled,
     LinkedinOutlined,
+    MenuOutlined,
+    SearchOutlined,
   } from "@ant-design/icons-vue";
-  import banner from "/@/assets/images/banner.jpg";
+  import { ref } from "vue";
+  import SideBar from "./SideBar.vue";
+  import NavBar from "./NavBar.vue";
   import wechatQRCode from "/@/assets/images/wechatQRCode.jpg";
   import juejin from "/@/assets/svg/juejin.svg";
   import { useBlogSetting } from "/@/hooks/useBlogSetting";
   import { openWindow } from "/@/utils";
 
   const { blogTitle, githubUrl, JuejinUrl, mailUrl, linkedInUrl } = useBlogSetting();
+
+  const sideBarVisible = ref(false);
 </script>
 
 <style lang="less">
