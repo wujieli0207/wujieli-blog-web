@@ -4,7 +4,7 @@
 
 declare module "vue" {
   export interface GlobalComponents {
-    AAffix: typeof import("ant-design-vue/es")["Affix"];
+    AAvatar: typeof import("ant-design-vue/es")["Avatar"];
     AButton: typeof import("ant-design-vue/es")["Button"];
     ADrawer: typeof import("ant-design-vue/es")["Drawer"];
     APopover: typeof import("ant-design-vue/es")["Popover"];
